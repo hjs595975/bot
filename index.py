@@ -7,7 +7,8 @@ import asyncio
 import re
 import os
 
-token = "Nzk0NTcyMzM5MTA2NDE0NjQy.X-8xKA.3t7rHdhnvU8r68mpRrDmkAVEvGs" #봇 토큰 설정하기
+access_token = os.environ["BOT_TOKEN"]
+token = "access_token" #봇 토큰 설정하기
 client = discord.Client() #client 설정하기
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
@@ -39,7 +40,7 @@ async def on_message(message): #사용자가 메세지를 입력했을때
                 await message.channel.send(f"상태메시지 : {text}")
             else:
                 return await message.channel.send("상메가 없습니다")
-
+    
     if message.content == "어이": #만일 사용자가 "야" 라고 입력했을때
         await message.channel.send("네?주인님?") #봇이 "왜" 라고 답한다.
     if message.content == "야": #만일 사용자가 "야" 라고 입력했을때
@@ -132,5 +133,5 @@ async def on_message(message): #사용자가 메세지를 입력했을때
                 await message.channel.send(embed=discord.Embed(title="에러 발생", description = str(e), color = 0xff0000))
                 return
         else:
-            await message.channel.send(embed=discord.Embed(title="권한 부족", description = message.author.mention + "님은 채널을 관리 할 수 있는 권한이 없습니다.", color = 0xff0000))
+             await message.channel.send(embed=discord.Embed(title="권한 부족", description = message.author.mention + "님은 채널을 관리 할 수 있는 권한이 없습니다.", color = 0xff0000))
 client.run(token) #token으로 봇을 실행한다
