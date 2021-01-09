@@ -4,7 +4,6 @@ from discord.ext import tasks
 from itertools import cycle
 import random
 import asyncio
-import re
 import os
 
 access_token = os.environ["BOT_TOKEN"]
