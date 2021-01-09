@@ -5,6 +5,7 @@ from itertools import cycle
 import random
 import asyncio
 import re
+import os
 
 token = "Nzk0NTcyMzM5MTA2NDE0NjQy.X-8xKA.3t7rHdhnvU8r68mpRrDmkAVEvGs" #봇 토큰 설정하기
 client = discord.Client() #client 설정하기
