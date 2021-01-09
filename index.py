@@ -24,23 +24,7 @@ async def on_ready(): #봇이 준비되었을때
         message.append(message.pop(0))
         await asyncio.sleep(4)
 @client.event
-async def on_message(message): #사용자가 메세지를 입력했을때
-    if message.content.startswith("!상메"):
-            userid = message.content[4:]
-            user = re.findall("\d+", userid)
-            m = message.guild.get_member(int(user[0]))
-            acts = m.activities
-            act = [i for i in acts if isinstance(i, discord.CustomActivity)]
-            if act:
-                act = act[0]
-            else:
-                return await message.channel.send("상메가 없습니다")
-            text = str(act.name)
-            if text:
-                await message.channel.send(f"상태메시지 : {text}")
-            else:
-                return await message.channel.send("상메가 없습니다")
-    
+async def on_message(message): #사용자가 메세지를 입력한다. 
     if message.content == "어이": #만일 사용자가 "야" 라고 입력했을때
         await message.channel.send("네?주인님?") #봇이 "왜" 라고 답한다.
     if message.content == "야": #만일 사용자가 "야" 라고 입력했을때
